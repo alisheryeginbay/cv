@@ -1,0 +1,63 @@
+# Sample data that exercises every section of the template. CI builds it to catch template
+# breakage; real content lives in the cv-content repo.
+# Free-text fields (summary, highlights, details, description) accept Typst markup:
+# *bold*, _italic_, `code`, #link("https://...")[text]. Escape literal @, #, $ with a backslash.
+# Quote any value containing " #" — unquoted, YAML treats the rest of the line as a comment.
+
+name: Jane Doe
+title: Software Engineer
+
+contact:
+  email: jane@example.com
+  phone: +1 555 0100
+  location: Berlin, Germany
+  website: example.com
+  github: janedoe
+  linkedin: janedoe
+  x: janedoe
+
+summary: >-
+  Engineer focused on *web platforms* and developer tooling. Enjoys turning slow, manual
+  processes into _boring_ automation.
+
+experience:
+  - role: Senior Engineer
+    company: Example Corp
+    location: Remote
+    start: Jan 2023
+    end: Present
+    highlights:
+      - Cut build times by 60% by moving CI to incremental `bazel` builds.
+      - Led the migration of 40 services to a shared deploy pipeline.
+  - role: Engineer
+    company: Startup Inc.
+    location: Berlin, Germany
+    start: Jun 2020
+    end: Dec 2022
+    highlights:
+      - 'Built the billing system from scratch, see #link("https://example.com")[write-up].'
+
+education:
+  - institution: Example University
+    degree: B.Sc. Computer Science
+    location: Berlin, Germany
+    start: Sep 2016
+    end: Jun 2020
+    details: "GPA 3.9/4.0"
+
+skills:
+  - category: Languages
+    items: [TypeScript, Go, Python]
+  - category: Tools
+    items: [PostgreSQL, Docker, Cloudflare Workers]
+
+projects:
+  - name: example-cli
+    url: https://github.com/janedoe/example-cli
+    description: A small CLI that does one thing well.
+
+languages:
+  - name: English
+    level: Native
+  - name: German
+    level: Professional (C1)

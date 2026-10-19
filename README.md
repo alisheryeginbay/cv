@@ -25,10 +25,14 @@ Free-text fields support Typst markup (`*bold*`, `_italic_`, `#link("url")[text]
 ## Releasing
 
 cv-content uses a tagged version of this repo, so template changes never reach the published CV until you
-opt in:
+tag a release:
 
 ```sh
 git tag v1.1.0 && git push origin v1.1.0
 ```
 
-Then bump `TEMPLATE_REF` in cv-content's `Makefile`.
+Once the example builds, CI commits `TEMPLATE_REF = v1.1.0` to cv-content's `main`, which republishes the CV.
+This needs a `CONTENT_REPO_TOKEN` secret here: a fine-grained PAT scoped to cv-content with
+*Contents: Read and write*.
+
+To preview template changes against the real CV before tagging, run `make dev` in cv-content.

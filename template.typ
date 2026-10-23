@@ -108,6 +108,19 @@
     }
   }
 
+  if "certifications" in cv {
+    section("Certifications")
+    grid(
+      columns: (1fr, auto),
+      align: (left, right),
+      row-gutter: 6pt,
+      ..cv.certifications.map(c => (
+        [#text(font: sans, weight: "semibold", if "url" in c { link(c.url, c.name) } else { c.name })#if "issuer" in c [ #sym.dash.em #emph(c.issuer)]],
+        text(font: sans, size: 8.5pt, fill: muted, c.at("date", default: "")),
+      )).flatten(),
+    )
+  }
+
   if "skills" in cv {
     section("Skills")
     grid(
